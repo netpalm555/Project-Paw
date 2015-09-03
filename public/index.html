@@ -7,6 +7,7 @@
   <link href="css/custom.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 <body>
+  <!--
   <nav class="red darken-4" role="navigation">
     <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
       <ul class="right hide-on-med-and-down">
@@ -14,17 +15,36 @@
       </ul>
     </div>
   </nav>
+  -->
+  
+  <nav class="red darken-4">
+  <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+  <ul class="right hide-on-med-and-down">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+    
+  </ul>
+  <ul id="slide-out" class="side-nav">
+    <li><a href="#!">First Sidebar Link</a></li>
+    <li><a href="#!">Second Sidebar Link</a></li>
+  </ul>
+  <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+  </div>
+</nav>
+
 
     <div class="row">
-    <div class="col s6">
+    <div class="col m12 l12">
     <ul>
     <li>
     <div class="container">
       <div class="section">
       <div class="card">
-
+        
         <div class="card-content">
+          <div class="col s5 m3">
           <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+          </div>
           <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
           <p><a href="#">This is where a post goes</a></p>
         </div>
@@ -40,10 +60,10 @@
     <div class="container">
       <div class="section">
       <div class="card">
-        <div class="card avatar">
-            <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle">
-        </div>
         <div class="card-content">
+         <div class="col s5 m3">
+          <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+          </div>
           <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
           <p><a href="#">This is where a post goes</a></p>
         </div>
@@ -55,13 +75,7 @@
     </div>
   </div>
   </li>
-  </ul>
-</div>
-
-<!--Column #2 - removed while column 1 is WIP -->
-<div class="col s6">
-<ul>
-<li>
+  <li>
 <div class="container">
   <div class="section">
   <div class="card">
@@ -69,7 +83,9 @@
       <img class="activator" src="http://materializecss.com/images/office.jpg">
     </div>
     <div class="card-content">
-      <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle">
+      <div class="col s5 m3">
+          <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+      </div>
       <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
       <p><a href="#">This is where a post goes</a></p>
     </div>
@@ -81,11 +97,42 @@
 </div>
 </div>
 </li>
-</ul>
+
+<li>
+<div class="container">
+  <div class="section">
+  <div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://materializecss.com/images/office.jpg">
+    </div>
+    <div class="card-content">
+      <div class="col s5 m3">
+          <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+      </div>
+      <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
+      <p><a href="#">This is where a post goes</a></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
+      <p>This is where comments would go.</p>
+    </div>
+  </div>
+</div>
+</div>
+</li>
+  </ul>
 </div>
 
-</div>
+<div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">add</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons">photo</i></i></a></li>
+      <li><a class="btn-floating yellow darken-1"><i class="material-icons">textsms</i></a></li>
+    </ul>
 
+</div>
 
 <!--
 This code is for reference, especially for profile pictures! Please do not remove it!
@@ -134,3 +181,4 @@ This code is for reference, especially for profile pictures! Please do not remov
 <script src="js/init.js"></script>
 </body>
 </html>
+
