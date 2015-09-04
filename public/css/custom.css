@@ -1,12 +1,9 @@
-.cardavatar{
-    position: absolute;
-        width: 42px;
-        height: 42px;
-        overflow: hidden;
-        left: 15px;
-        display: inline-block;
-        vertical-align: middle;
-        min-height: 84px;
-      padding-left: 72px;
-      position: relative;
-}
+header, main, footer {
+    padding-left: 240px;
+  }
+
+  @media only screen and (max-width : 992px) {
+    header, main, footer {
+      padding-left: 0;
+    }
+  }
