@@ -1,0 +1,13 @@
+doctype html
+html(ng=app="myapp")
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    include partials/index
+    div(ng-view)
+      block content
+  script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js",type="application/javascript")
+  script(src="app/app.js",type="application/javascript")
+  script(src="app/controllers.js",type="application/javascript")
+  script(src="app/directives.js",type="application/javascript")
