@@ -1,13 +1,113 @@
 doctype html
-html(ng=app="myapp")
+html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(href='css/materialize.css', type='text/css', rel='stylesheet', media='screen,projection')
+    link(href='css/style.css', type='text/css', rel='stylesheet', media='screen,projection')
+    link(href='css/custom.css', type='text/css', rel='stylesheet', media='screen,projection')
   body
-    include partials/index
-    div(ng-view)
-      block content
-  script(src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js",type="application/javascript")
-  script(src="app/app.js",type="application/javascript")
-  script(src="app/controllers.js",type="application/javascript")
-  script(src="app/directives.js",type="application/javascript")
+    nav.red.darken-4(style='position: fixed; z-index: 9999;')
+      a.button-collapse(href='#', data-activates='slide-out')
+        i.mdi-navigation-menu
+      .nav-wrapper.container
+        a#logo-container.brand-logo(href='#') Logo
+        ul.right.hide-on-med-and-down
+          li
+            a(href='#!') First Sidebar Link
+          li
+            a(href='#!') Second Sidebar Link
+    body
+      .row
+        .col.m0.l2
+          ul#slide-out.side-nav.fixed(style='top: 65px;')
+            li
+              a(href='#!') First Sidebar Link
+            li
+              a(href='#!') Second Sidebar Link
+        .col.m12.l10.offset-l2(style='margin-top: 65px;')
+          ul
+            li
+              .container
+                .section
+                  .card
+                    .card-content
+                      .col.s5.m3
+                        img.circle.responsive-img(src='http://materializecss.com/images/yuna.jpg', alt='')
+                      span.card-title.activator.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right more_vert
+                      p
+                        a(href='#') This is where a post goes
+                    .card-reveal
+                      span.card-title.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right close
+                      p This is where comments would go.
+            li
+              .container
+                .section
+                  .card
+                    .card-content
+                      .col.s5.m3
+                        img.circle.responsive-img(src='http://materializecss.com/images/yuna.jpg', alt='')
+                      span.card-title.activator.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right more_vert
+                      p
+                        a(href='#') This is where a post goes
+                    .card-reveal
+                      span.card-title.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right close
+                      p This is where comments would go.
+            li
+              .container
+                .section
+                  .card
+                    .card-image.waves-effect.waves-block.waves-light
+                      img.activator(src='http://materializecss.com/images/office.jpg')
+                    .card-content
+                      .col.s5.m3
+                        img.circle.responsive-img(src='http://materializecss.com/images/yuna.jpg', alt='')
+                      span.card-title.activator.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right more_vert
+                      p
+                        a(href='#') This is where a post goes
+                    .card-reveal
+                      span.card-title.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right close
+                      p This is where comments would go.
+            li
+              .container
+                .section
+                  .card
+                    .card-image.waves-effect.waves-block.waves-light
+                      img.activator(src='http://materializecss.com/images/office.jpg')
+                    .card-content
+                      .col.s5.m3
+                        img.circle.responsive-img(src='http://materializecss.com/images/yuna.jpg', alt='')
+                      span.card-title.activator.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right more_vert
+                      p
+                        a(href='#') This is where a post goes
+                    .card-reveal
+                      span.card-title.grey-text.text-darken-4
+                        | Username
+                        i.material-icons.right close
+                      p This is where comments would go.
+        .fixed-action-btn(style='bottom: 24px; right: 24px;')
+          a.btn-floating.btn-large.red
+            i.large.material-icons add
+          ul
+            li
+              a.btn-floating.red
+                i.material-icons photo
+            li
+              a.btn-floating.yellow.darken-1
+                i.material-icons textsms
+    script(src='https://code.jquery.com/jquery-2.1.1.min.js')
+    script(src='js/materialize.js')
+    script(src='js/init.js')
