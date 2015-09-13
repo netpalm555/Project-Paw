@@ -2,22 +2,23 @@
 <html>
 
 <head>
-  {{>resc}}
-  {{>common_scripts}}
+  {{>resc}} {{>common_scripts}}
 </head>
 
 <body>
   {{>header}}
   <div class="row">
-    <form class="col s12" style="margin-top: 75px" action="/data" method="post">
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Enter your message here." id="message" name="message" type="text" />
-          <label for="message">Message</label>
+    <form class="col s12 container" style="margin-top: 75px" action="/data" method="post">
+      <div class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input placeholder="Enter your message here." id="message" name="message" type="text" />
+            <label for="message">Message</label>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <button type="submit" class="waves-effect waves-light btn" value="Submit">Submit</button>
+        <div class="row">
+          <button type="submit" class="waves-effect waves-light btn validate" style="margin-left: 10px" value="ubmit">Submit</button>
+        </div>
       </div>
     </form>
   </div>
