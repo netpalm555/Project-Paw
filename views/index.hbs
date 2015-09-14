@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  {{>resc}}
+</head>
+
+<body>
+  {{>header}}
+
+  <body>
+  </div>
+  <div class="row">
+    <div class="col m0 l2">
+      <ul id="slide-out" class="side-nav fixed" style="top: 65px;">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a href="#!">Second Sidebar Link</a></li>
+      </ul>
+    </div>
+    <div class="col m12 l10 offset-l2" style="margin-top: 65px;">
+      <ul>
+        {{>basic_card}} {{>basic_card}} {{>image_card}} {{>image_card}}
+      </ul>
+    </div>
+
+    {{>action_btn}}
+
+  </body>
+  {{>common_scripts}}
+  <script src="js/init.js"></script>
+</body>
+
+</html>
