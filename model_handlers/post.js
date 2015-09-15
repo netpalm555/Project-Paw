@@ -1,10 +1,18 @@
-var pg = require('../pg');
+var pg = require('pg');
 
+var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUHnhuHkTbHjvzFu@ec2-107-21-106-196.compute-1.amazonaws.com:5432/d9hupdecqpkcup?ssl=true";
 
 //Create a new post
 exports.create = function(user, text) {
-  pg.connect(function(err, client, done) {
-    client.query('INSERT INTO posts ').on('end', function() {
+  pg.connect(dbUrl, function(err, client, done) {
+    var now = new Date();
+    var query = "INSERT INTO posts (author, lastedited, posttext) VALUES ('guest', '" + now.toISOString() + "', '" + text + "' )";
+    console.log(query);
+    client.query(query).on('error', function(err) {
+      console.log(err);
+    })
+    .on('end', function(result) {
+      console.log('completed sucessfully: ' + JSON.stringify(result));
       done();
     });
   });

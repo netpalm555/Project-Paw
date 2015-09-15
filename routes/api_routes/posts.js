@@ -11,7 +11,7 @@ router.route('/')
   //Adds new post
   .post(function(req, res) {
     Post.create('test user', req.body.postText);
-    res.send("Got: " + req.body.postText);
+    res.redirect('/');
   }
 );
 
