@@ -1,8 +1,13 @@
 var pg = require('../pg');
 
+
 //Create a new post
 exports.create = function(user, text) {
-
+  pg.connect(function(err, client, done) {
+    client.query('INSERT INTO posts ').on('end', function() {
+      done();
+    });
+  });
 };
 
 //Get all posts

@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var Post = require('../../model_handlers/post');
 
 //Handles requests sent to /posts/
 router.route('/')
@@ -9,7 +10,8 @@ router.route('/')
   })
   //Adds new post
   .post(function(req, res) {
-
+    Post.create('test user', req.body.postText);
+    res.send("Got: " + req.body.postText);
   }
 );
 
