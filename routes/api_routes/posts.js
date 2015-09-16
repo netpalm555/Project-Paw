@@ -6,7 +6,8 @@ var Post = require('../../model_handlers/post');
 router.route('/')
   //Returns all posts
   .get(function(req, res) {
-
+    console.log('Hit /posts');
+    Post.getAll();
   })
   //Adds new post
   .post(function(req, res) {

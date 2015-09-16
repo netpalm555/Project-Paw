@@ -19,8 +19,24 @@ exports.create = function(user, text) {
 };
 
 //Get all posts
-exports.all = function() {
-
+exports.getAll = function() {
+  var toReturn = [];
+  pg.connect(dbUrl, function(err, client, done) {
+    var query = "SELECT * FROM posts";
+    console.log(query);
+    client.query(query).on('error', function(err) {
+      console.log(err);
+    })
+    .on('row', function(result) {
+      console.log(result);
+      toReturn.push(result);
+    })
+    .on('end', function(result) {
+      console.log('completed sucessfully: ' + JSON.stringify(result));
+      return toReturn;
+      done();
+    });
+  });
 };
 
 //Get post by id
