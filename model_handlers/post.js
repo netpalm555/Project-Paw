@@ -21,6 +21,7 @@ exports.create = function(user, text) {
 //Get all posts
 exports.getAll = function() {
   var toReturn = [];
+  var canReturn = false;
   pg.connect(dbUrl, function(err, client, done) {
     var query = "SELECT * FROM posts";
     console.log(query);
@@ -28,15 +29,17 @@ exports.getAll = function() {
       console.log(err);
     })
     .on('row', function(result) {
-      console.log(result);
+      //console.log(result);
       toReturn.push(result);
     })
     .on('end', function(result) {
-      console.log('completed sucessfully: ' + JSON.stringify(result));
-      return toReturn;
+      //console.log('completed sucessfully: ' + JSON.stringify(result));
+      console.log(toReturn);
       done();
+      canReturn = true;
     });
   });
+  return toReturn;
 };
 
 //Get post by id
