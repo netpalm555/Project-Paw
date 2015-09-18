@@ -19,7 +19,7 @@ exports.create = function(user, text) {
 };
 
 //Get all posts
-exports.getAll = function() {
+exports.getAll = function(callback) {
   var toReturn = [];
   var canReturn = false;
   pg.connect(dbUrl, function(err, client, done) {
@@ -36,10 +36,9 @@ exports.getAll = function() {
       //console.log('completed sucessfully: ' + JSON.stringify(result));
       console.log(toReturn);
       done();
-      canReturn = true;
+      callback(toReturn);
     });
   });
-  return toReturn;
 };
 
 //Get post by id
