@@ -9,12 +9,12 @@ exports.create = function(user, text) {
     var query = "INSERT INTO posts (author, lastedited, posttext) VALUES ('guest', '" + now.toISOString() + "', '" + text + "' )";
     console.log(query);
     client.query(query).on('error', function(err) {
-      console.log(err);
-    })
-    .on('end', function(result) {
-      console.log('completed sucessfully: ' + JSON.stringify(result));
-      done();
-    });
+        console.log(err);
+      })
+      .on('end', function(result) {
+        console.log('completed sucessfully: ' + JSON.stringify(result));
+        done();
+      });
   });
 };
 
@@ -26,24 +26,35 @@ exports.getAll = function(callback) {
     var query = "SELECT * FROM posts";
     console.log(query);
     client.query(query).on('error', function(err) {
-      console.log(err);
-    })
-    .on('row', function(result) {
-      //console.log(result);
-      toReturn.push(result);
-    })
-    .on('end', function(result) {
-      //console.log('completed sucessfully: ' + JSON.stringify(result));
-      console.log(toReturn);
-      done();
-      callback(toReturn);
-    });
+        console.log(err);
+      })
+      .on('row', function(result) {
+        toReturn.push(result);
+      })
+      .on('end', function(result) {
+        done();
+        callback(toReturn);
+      });
   });
 };
 
 //Get post by id
-exports.all = function(postId) {
-
+exports.getById = function(postId, callback) {
+  var toReturn;
+  pg.connect(dbUrl, function(err, client, done) {
+    var query = "SELECT * FROM posts WHERE postId = " + postId;
+    console.log(query);
+    client.query(query).on('error', function(err) {
+        console.log(err);
+      })
+      .on('row', function(result) {
+        toReturn = result;
+      })
+      .on('end', function(result) {
+        done();
+        callback(toReturn);
+      });
+  });
 };
 
 //Get all posts by a user

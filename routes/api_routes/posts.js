@@ -14,20 +14,20 @@ router.route('/')
   .post(function(req, res) {
     Post.create('test user', req.body.postText);
     res.redirect('/');
-  }
-);
+  });
 
 //Handles requests sent to /posts/:id
 router.route('/:postId')
   //Returns post with postId
   .get(function(req, res) {
-
+    Post.getById(req.postId, function(result) {
+      res.json(result);
+    });
   })
   //Updates posts with postId
   .post(function(req, res) {
 
-  }
-);
+  });
 
 router.use('/:id/comments', require('./comments.js'));
 
