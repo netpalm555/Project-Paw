@@ -1,4 +1,4 @@
-var pg = require('../pg');
+var pg = require('pg');
 
 //Create a new comment on post
 exports.create = function(postId, text) {

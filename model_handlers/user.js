@@ -1,4 +1,4 @@
-var pg = require('../pg');
+var pg = require('pg');
 var crypto = require('crypto');
 
 var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUHnhuHkTbHjvzFu@ec2-107-21-106-196.compute-1.amazonaws.com:5432/d9hupdecqpkcup?ssl=true";
