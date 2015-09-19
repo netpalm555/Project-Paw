@@ -20,7 +20,7 @@ router.route('/')
 router.route('/:postId')
   //Returns post with postId
   .get(function(req, res) {
-    Post.getById(req.postId, function(result) {
+    Post.getById(req.params.postId, function(result) {
       res.json(result);
     });
   })
