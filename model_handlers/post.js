@@ -7,24 +7,23 @@ exports.create = function(user, text) {
   pg.connect(dbUrl, function(err, client, done) {
     var now = new Date();
     var query = "INSERT INTO posts (author, lastedited, posttext) VALUES ('guest', '" + now.toISOString() + "', '" + text + "' )";
-    console.log(query);
+    //console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);
       })
       .on('end', function(result) {
-        console.log('completed sucessfully: ' + JSON.stringify(result));
         done();
       });
   });
 };
 
 //Get all posts
-exports.getAll = function(callback) {
+exports.getAll = function(cb) {
   var toReturn = [];
   var canReturn = false;
   pg.connect(dbUrl, function(err, client, done) {
     var query = "SELECT * FROM posts";
-    console.log(query);
+    //console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);
       })
@@ -33,7 +32,7 @@ exports.getAll = function(callback) {
       })
       .on('end', function(result) {
         done();
-        callback(toReturn);
+        cb(toReturn);
       });
   });
 };
@@ -43,7 +42,7 @@ exports.getById = function(postId, callback) {
   var toReturn;
   pg.connect(dbUrl, function(err, client, done) {
     var query = "SELECT * FROM posts WHERE postId = " + postId;
-    console.log(query);
+    //console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);
       })

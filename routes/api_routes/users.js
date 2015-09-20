@@ -7,24 +7,40 @@ var crypto = require('crypto');
 router.route('/')
   //Returns all users
   .get(function(req, res) {
-    res.send(crypto.getHashes());
+    console.log('Getting all users');
+    User.all(function(result) {
+      res.json(result);
+    });
   })
   //Adds new user
   .post(function(req, res) {
-
-  }
-);
+    User.create({
+      username: req.body.username,
+      email: req.body.email,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      password: req.body.password
+    });
+    res.redirect('/api/users');
+  });
 
 //Handles requests sent to /users/:userId
 router.route('/:userId')
   //Returns user with userId
   .get(function(req, res) {
-
+    User.getById(req.params.userId, function(result) {
+      res.json(result);
+    });
   })
   //Updates user with userId
   .post(function(req, res) {
-
-  }
-);
+    // User.update(req.params.userId, {
+    //   username: req.body.username,
+    //   email: req.body.email,
+    //   firstName: req.body.firstName,
+    //   lastName: req.body.lastName,
+    //   password: req.body.password
+    // });
+  });
 
 module.exports = router;

@@ -14,15 +14,12 @@ var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUH
  */
 exports.create = function(userInfo) {
   pg.connect(dbUrl, function(err, client, done) {
-    var salt = crypto.randomBytes(64);
-    var hashedPass = crypto.pbkdf2Sync(userInfo.password, salt, 10000, 512, 'sha256');
+    var salt = crypto.randomBytes(64).toString('hex');
+    var hashedPass = crypto.pbkdf2Sync(userInfo.password, salt, 10000, 512, 'sha512').toString('hex');
     var query = "INSERT INTO users (username, email, first_name, last_name, salt, password) VALUES ('" + userInfo.username + "', '" + userInfo.email + "', '" + userInfo.firstName + "', '" + userInfo.lastName + "', '" + salt + "', '" + hashedPass + "')";
-    console.log(query);
+    //console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);
-      })
-      .on('row', function(result) {
-
       })
       .on('end', function(result) {
         done();
@@ -31,32 +28,34 @@ exports.create = function(userInfo) {
 };
 
 //Get all users
-exports.all = function() {
+exports.all = function(cb) {
+  var toReturn = [];
   pg.connect(dbUrl, function(err, client, done) {
-    var query = "";
-    console.log(query);
+    var query = "SELECT * FROM users";
+    //console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);
       })
       .on('row', function(result) {
-
+        toReturn.push(result);
       })
       .on('end', function(result) {
         done();
+        cb(toReturn);
       });
   });
 };
 
 //Get user by id
-exports.all = function(userId) {
+exports.getById = function(userId, cb) {
   pg.connect(dbUrl, function(err, client, done) {
-    var query = "";
+    var query = "SELECT * FROM users WHERE userId = " + userId;
     console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);
       })
       .on('row', function(result) {
-
+        cb(result);
       })
       .on('end', function(result) {
         done();
@@ -67,17 +66,21 @@ exports.all = function(userId) {
 //Update user information
 //userInfo is a JSON object
 exports.update = function(userId, userInfo) {
-  pg.connect(dbUrl, function(err, client, done) {
-    var query = "";
-    console.log(query);
-    client.query(query).on('error', function(err) {
-        console.log(err);
-      })
-      .on('row', function(result) {
-
-      })
-      .on('end', function(result) {
-        done();
-      });
-  });
+  // pg.connect(dbUrl, function(err, client, done) {
+  //   var query = "UPDATE users SET ";
+  //   for (info in userInfo) {
+  //     if (userId.hasOwnProperty(info)) {
+  //       query += (info + " = " + userId[info] + ",");
+  //     }
+  //   }
+  //   query = query.substring(0, query.length - 1);
+  //   query += ("WHERE userId = " + userId);
+  //   console.log(query);
+  // client.query(query).on('error', function(err) {
+  //     console.log(err);
+  //   })
+  //   .on('end', function(result) {
+  //     done();
+  //   });
+  // });
 };
