@@ -6,13 +6,6 @@ var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUH
 
 //Create a new user
 //userInfo is a JSON object
-/* userInfo values
- * username
- * email
- * firstName
- * lastName
- * password
- */
 exports.create = function(userInfo) {
   pg.connect(dbUrl, function(err, client, done) {
     var query = "INSERT INTO users (username, email, first_name, last_name) VALUES ('" + userInfo.username + "', '" + userInfo.email + "', '" + userInfo.firstName + "', '" + userInfo.lastName + "') RETURNING userId";

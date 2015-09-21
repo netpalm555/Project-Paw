@@ -10,8 +10,7 @@ router.route('/')
   //Adds new comment to post with id postId
   .post(function(req, res) {
 
-  }
-);
+  });
 
 //Handles requests sent to /posts/:postId/comment/:commentId
 router.route('/:commentId')
@@ -22,7 +21,6 @@ router.route('/:commentId')
   //Updates comment with id commentId for post with id postId
   .post(function(req, res) {
 
-  }
-);
+  });
 
 module.exports = router;

@@ -15,8 +15,7 @@ router.route('/data')
   })
   .get(function(req, res) {
     res.render('upload');
-  }
-);
+  });
 router.use('/api', require('./api'));
 
 module.exports = router;
