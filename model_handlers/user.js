@@ -1,5 +1,6 @@
 var pg = require('pg');
 var crypto = require('crypto');
+var Password = require('./password');
 
 var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUHnhuHkTbHjvzFu@ec2-107-21-106-196.compute-1.amazonaws.com:5432/d9hupdecqpkcup?ssl=true";
 
@@ -14,12 +15,13 @@ var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUH
  */
 exports.create = function(userInfo) {
   pg.connect(dbUrl, function(err, client, done) {
-    var salt = crypto.randomBytes(64).toString('hex');
-    var hashedPass = crypto.pbkdf2Sync(userInfo.password, salt, 10000, 512, 'sha512').toString('hex');
-    var query = "INSERT INTO users (username, email, first_name, last_name, salt, password) VALUES ('" + userInfo.username + "', '" + userInfo.email + "', '" + userInfo.firstName + "', '" + userInfo.lastName + "', '" + salt + "', '" + hashedPass + "')";
-    //console.log(query);
+    var query = "INSERT INTO users (username, email, first_name, last_name) VALUES ('" + userInfo.username + "', '" + userInfo.email + "', '" + userInfo.firstName + "', '" + userInfo.lastName + "') RETURNING userId";
     client.query(query).on('error', function(err) {
         console.log(err);
+      })
+      .on('row', function(result) {
+        console.log(result.userid);
+        Password.set(result.userid, userInfo.password);
       })
       .on('end', function(result) {
         done();

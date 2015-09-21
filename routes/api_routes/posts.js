@@ -20,7 +20,7 @@ router.route('/')
 router.route('/:postId')
   //Returns post with postId
   .get(function(req, res) {
-    Post.getById(req.params.postId, function(result) {
+    Post.getById(req.postId, function(result) {
       res.json(result);
     });
   })
@@ -29,6 +29,6 @@ router.route('/:postId')
 
   });
 
-router.use('/:id/comments', require('./comments.js'));
+router.use('/:postId/comments', require('./comments.js'));
 
 module.exports = router;
