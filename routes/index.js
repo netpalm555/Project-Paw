@@ -3,19 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index');
+  res.sendFile('./views/index.html');
 });
 router.get('/partials/:name', function(req, res) {
   res.render('partials/' + req.params.name);
 });
-router.route('/data')
-  .post(function(req, res) {
-    console.log(req.body.message);
-    res.end(req.body.message + " was received");
-  })
-  .get(function(req, res) {
-    res.render('upload');
-  });
 router.use('/api', require('./api'));
+router.use('*', function(req, res) {
+  res.sendFile('./views/index.html');
+})
 
 module.exports = router;
