@@ -1,12 +1,13 @@
-//init app module and declare it's dependencies on other modules
-var app = angular.module('myapp', ['myapp.controllers']);
-app.config(['$routeProvider', function ($routeProvider) {
-    $routeProvider.when('/', {
-        templateUrl: 'partials/index',
-        controller: 'IndexController'
-    }).otherwise({
-        redirectTo: '/'
-    });
-}]).config(['$locationProvider', function($locationProvider) {
-    $locationProvider.html5Mode(true);
-}]);
+var app = angular.module('myApp', ["ngResource"]).
+  config(['$routeProvider', '$locationProvider',
+    function($routeProvider, $locationProvider) {
+      $locationProvider.html5Mode(true);
+      console.log('redirecting');
+      $routeProvider
+        .when("/home", {
+          templateUrl: "partials/home.html",
+          controller: "HomeCtrl" })
+        .otherwise({ redirectTo: "/" });
+    }
+  ]
+);
