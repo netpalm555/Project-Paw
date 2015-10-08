@@ -5,13 +5,19 @@ var path = require('path');
 router.use('/api', require('./api'));
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.sendFile('/views/' + 'index.html', {"root": path.join(__dirname, '../')});
+  res.sendFile('/views/' + 'index.html', {
+    "root": path.join(__dirname, '../')
+  });
 });
 router.get('/partials/:name', function(req, res) {
-  res.sendFile('/views/partials/' + req.params.name, {"root": path.join(__dirname, '../')});
+  res.sendFile('/views/partials/' + req.params.name, {
+    "root": path.join(__dirname, '../')
+  });
 });
 router.get('*', function(req, res, next) {
-  res.sendFile('/views/' + 'index.html', {"root": path.join(__dirname, '../')});
+  res.sendFile('/views/' + 'index.html', {
+    "root": path.join(__dirname, '../')
+  });
 });
 
 module.exports = router;
