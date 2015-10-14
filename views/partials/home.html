@@ -19,29 +19,173 @@
   </nav>
 
   <body>
-  </div>
-  <div class="row">
-    <div class="col m0 l2">
-      <ul id="slide-out" class="side-nav fixed" style="top: 65px;">
-        <li><a href="#!">First Sidebar Link</a></li>
-        <li><a href="#!">Second Sidebar Link</a></li>
-      </ul>
     </div>
-    <div class="col m12 l10 offset-l2" style="margin-top: 65px;">
-      <ul>
-        <!-- {{>account_box}} {{>post_box}} {{>basic_card}} {{>basic_card}} {{>image_card}} {{>image_card}} -->
-      </ul>
-    </div>
+    <div class="row">
+      <div class="col m0 l2">
+        <ul id="slide-out" class="side-nav fixed" style="top: 65px;">
+          <li><a href="#!">First Sidebar Link</a></li>
+          <li><a href="#!">Second Sidebar Link</a></li>
+        </ul>
+      </div>
+      <div class="col m12 l10 offset-l2" style="margin-top: 65px;">
+        <ul>
+          <li>
+            <div class="container">
+              <div class="card">
+                <div class="card-content row">
+                  <form class="col s12" method="post" action="/api/users">
+                    <div class="row col s12">
+                      <div class="input-field col s12">
+                        <input id="username" name="username" type="text" />
+                        <label for="username">Username</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <input id="firstName" name="firstName" type="text" />
+                        <label for="firstName">First Name</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <input id="lastName" name="lastName" type="text" />
+                        <label for="lastName">Last Name</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <input id="email" name="email" type="email" />
+                        <label for="email">Email</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <input id="password" name="password" type="password" />
+                        <label for="password">Password</label>
+                      </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit">Create Account
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="container">
+              <div class="card">
+                <div class="card-content row">
+                  <form class="col s12" method="post" action="/api/posts">
+                    <div class="row col s12">
+                      <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" name="postText"></textarea>
+                        <label for="textarea1">What's Up?</label>
+                      </div>
+                      <button class="btn waves-effect waves-light" type="submit">Submit
+                        <i class="material-icons right">send</i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="container">
+              <div class="card">
+                <div class="card-content">
+                  <div class="col s5 m3">
+                    <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+                  </div>
+                  <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">This is where a post goes</a></p>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
+                  <p>This is where comments would go.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="container">
+              <div class="card">
+                <div class="card-content">
+                  <div class="col s5 m3">
+                    <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+                  </div>
+                  <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
+                  <p><a href="#">This is where a post goes</a></p>
+                </div>
+                <div class="card-reveal">
+                  <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
+                  <p>This is where comments would go.</p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="container">
+              <div class="section">
+                <div class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://materializecss.com/images/office.jpg">
+                  </div>
+                  <div class="card-content">
+                    <div class="col s5 m3">
+                      <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+                    </div>
+                    <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is where a post goes</a></p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
+                    <p>This is where comments would go.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="container">
+              <div class="section">
+                <div class="card">
+                  <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="http://materializecss.com/images/office.jpg">
+                  </div>
+                  <div class="card-content">
+                    <div class="col s5 m3">
+                      <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+                    </div>
+                    <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">This is where a post goes</a></p>
+                  </div>
+                  <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
+                    <p>This is where comments would go.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
 
-    <div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
-      <a class="btn-floating btn-large red">
-        <i class="large material-icons">add</i>
-      </a>
-      <ul>
-        <li><a class="btn-floating red"><i class="material-icons">photo</i></i></a></li>
-        <li><a class="btn-floating yellow darken-1"><i class="material-icons">textsms</i></a></li>
-      </ul>
-    </div>
+          <!-- {{>account_box}} {{>post_box}} {{>basic_card}} {{>basic_card}} {{>image_card}} {{>image_card}} -->
+        </ul>
+      </div>
+
+      <!-- <div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">add</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red"><i class="material-icons">photo</i></i></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">textsms</i></a></li>
+        </ul>
+      </div> -->
+      <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+        <a class="btn-floating btn-large red">
+          <i class="large material-icons">mode_edit</i>
+        </a>
+        <ul>
+          <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></i></a></li>
+          <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+          <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+          <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+        </ul>
+      </div>
 
   </body>
 </body>

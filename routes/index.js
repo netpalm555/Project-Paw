@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
   });
 });
 router.get('/partials/:name', function(req, res) {
+  console.log("sending partial");
   res.sendFile('/views/partials/' + req.params.name, {
     "root": path.join(__dirname, '../')
   });
