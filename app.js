@@ -46,4 +46,4 @@ pg.connect(dbUrl, function(err, client) {
 
 app.use('/', routes);
 
-app.listen(process.env.PORT || '5000');
+app.listen(process.env.PORT /*|| '5000'*/);
