@@ -1,36 +1,36 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var exphbs = require('express-handlebars');
-var pg = require('pg');
+// Require modules
+var express = require('express'); // Express framework
+var path = require('path'); // File path utility
+var favicon = require('serve-favicon'); // Favicon server
+var cookieParser = require('cookie-parser'); // Browser cookie reader/writer
+var bodyParser = require('body-parser'); // Reads POST data
+var pg = require('pg'); // Connects to and modifies the Postgres server
 
+// Require file to handle routing
 var routes = require('./routes/index');
 
+// Create the main application that runs
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({
-  defaultLayout: 'index',
-  extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
-
+// Beautify JSON output from prostgres
 app.set('json spaces', 2);
 
-// uncomment after placing your favicon in /public
+// Serve the faicon image
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev'));
+
+// Setup in order to parse POST data to JSON
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
+// Setup cookie parser
 app.use(cookieParser());
+
+// Create a url path to the public folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Get or set the url of the Postgres server
 var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUHnhuHkTbHjvzFu@ec2-107-21-106-196.compute-1.amazonaws.com:5432/d9hupdecqpkcup?ssl=true";
 
 // pg.connect(dbUrl, function(err, client) {
@@ -44,6 +44,8 @@ var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUH
 //     });
 // });
 
+// Set up redirection to router file to hadle routing
 app.use('/', routes);
 
-app.listen(process.env.PORT /*|| '5000'*/ );
+// Start server on Heroku or on localhost:5000 as a fallback
+app.listen(process.env.PORT || '5000');
