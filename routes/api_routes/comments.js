@@ -1,3 +1,4 @@
+// Require modules
 var express = require('express');
 var router = express.Router();
 
@@ -23,4 +24,5 @@ router.route('/:commentId')
 
   });
 
+// Publish methods
 module.exports = router;

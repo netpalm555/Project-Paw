@@ -1,3 +1,4 @@
+// Require modules
 var express = require('express');
 var router = express.Router();
 var User = require('../../model_handlers/user');
@@ -43,4 +44,5 @@ router.route('/:userId')
     // });
   });
 
+// Publish methods
 module.exports = router;

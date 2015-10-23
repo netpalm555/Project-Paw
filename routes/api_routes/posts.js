@@ -1,3 +1,4 @@
+// Require modules
 var express = require('express');
 var router = express.Router();
 var Post = require('../../model_handlers/post');
@@ -29,6 +30,8 @@ router.route('/:postId')
 
   });
 
+// Redirect for query for comments
 router.use('/:postId/comments', require('./comments.js'));
 
+// Publish methods
 module.exports = router;
