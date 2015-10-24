@@ -1,17 +1,16 @@
 (function() {
-  var app = angular.module('myApp', ['ngRoute']).
-  config(['$routeProvider', '$locationProvider',
-    function($routeProvider, $locationProvider) {
-      $locationProvider.html5Mode(true);
+  var app = angular.module('myApp', ['ui.router'])
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
+    function($stateProvider, $urlRouterProvider, $locationProvider) {
+      $locationProvider.html5Mode(true).hashPrefix('!');
       console.log('redirecting');
-      $routeProvider
-        .when("/home", {
+      $stateProvider
+        .state('home', {
+          url: '/home',
           templateUrl: "partials/home.html",
           controller: HomeCtrl
-        })
-        .otherwise({
-          redirectTo: "/"
         });
+      $urlRouterProvider.otherwise('/');
     }
   ]);
 })();
