@@ -33,19 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Get or set the url of the Postgres server
 var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUHnhuHkTbHjvzFu@ec2-107-21-106-196.compute-1.amazonaws.com:5432/d9hupdecqpkcup?ssl=true";
 
-// pg.connect(dbUrl, function(err, client) {
-//   if (err) throw err;
-//   console.log('Connected to postgres! Getting schemas...');
-//
-//   client
-//     .query('SELECT * FROM public.testing')
-//     .on('row', function(row) {
-//       console.log(JSON.stringify(row));
-//     });
-// });
-
 // Set up redirection to router file to hadle routing
 app.use('/', routes);
-
 // Start server on Heroku or on localhost:5000 as a fallback
 app.listen(process.env.PORT || '5000');
