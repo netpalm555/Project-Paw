@@ -9,6 +9,10 @@
           url: '/home',
           templateUrl: "partials/home.html",
           controller: HomeCtrl
+        })
+        .state('login', {
+          url: '/login',
+          templateUrl: "partials/login.html"
         });
       $urlRouterProvider.otherwise('/');
     }
