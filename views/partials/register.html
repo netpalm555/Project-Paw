@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</head>
+<body>
+  <nav class="red darken-4" style="position: fixed; z-index: 9999;">
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="#!">First Sidebar Link</a></li>
+        <li><a href="#!">Second Sidebar Link</a></li>
+      </ul>
+  </nav>
+
+   <div class="row">
+   <div class="col m12 l10 offset-l2" style="margin-top: 65px;">
+        <ul>
+          <li>
+            <div class="container">
+              <div class="card">
+                <div class="card-content row">
+                  <form class="col s12" method="post" action="/api/users">
+                    <div class="row col s12">
+                      <div class="input-field col s12">
+                        <input id="name" name="name" type="text" />
+                        <label for="name">Name</label>
+                      <div class="input-field col s12">
+                        <input id="email" name="email" type="email" />
+                        <label for="email">Email</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <input id="password" name="password" type="password" />
+                        <label for="password">Password</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <input id="confirm" name="confirm" type="password" />
+                        <label for="confirm">Confirm Password</label>
+                      </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit">Sign Up
+                      <i class="material-icons right">send</i>
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+   </div>
+
+</body>
+</html>
