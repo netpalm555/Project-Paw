@@ -13,8 +13,12 @@
         .state('login', {
           url: '/login',
           templateUrl: "partials/login.html"
+        })
+        .state('register', {
+          url: '/register',
+          templateUrl: "partials/register.html"
         });
-      $urlRouterProvider.otherwise('/');
+      $urlRouterProvider.otherwise('/home');
     }
   ]);
 })();

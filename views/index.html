@@ -12,6 +12,21 @@
   </head>
 
   <body>
+      <nav class="red darken-4" style="position: fixed; z-index: 9999;">
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+        <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">Logo</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="#!">First Sidebar Link</a></li>
+            <li><a href="#!">Second Sidebar Link</a></li>
+          </ul>
+      </nav>
+
+        <div class="col m0 l2">
+          <ul id="slide-out" class="side-nav fixed" style="top: 65px;">
+            <li><a href="#!">First Sidebar Link</a></li>
+            <li><a href="#!">Second Sidebar Link</a></li>
+          </ul>
+        </div>
     <div>
       <div ui-view></div>
     </div>
