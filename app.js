@@ -1,10 +1,12 @@
 // Require modules
 var express = require('express'); // Express framework
+var session = require('express-session');
 var path = require('path'); // File path utility
 var favicon = require('serve-favicon'); // Favicon server
 var cookieParser = require('cookie-parser'); // Browser cookie reader/writer
 var bodyParser = require('body-parser'); // Reads POST data
 var pg = require('pg'); // Connects to and modifies the Postgres server
+var redisStore = require('connect-redis')(session);
 
 // Require file to handle routing
 var routes = require('./routes/index');
@@ -26,6 +28,14 @@ app.use(bodyParser.urlencoded({
 
 // Setup cookie parser
 app.use(cookieParser());
+app.use(session({
+  store: new redisStore({
+    host: 'pub-redis-12647.us-east-1-4.5.ec2.garantiadata.com',
+    port: 12647,
+    pass: 'HaHsRedis'
+  }),
+  secret: '415825827528hkgaahqfahaagahgka'
+}));
 
 // Create a url path to the public folder
 app.use(express.static(path.join(__dirname, 'public')));

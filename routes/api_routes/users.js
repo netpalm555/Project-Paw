@@ -16,7 +16,6 @@ router.route('/')
   //Adds new user
   .post(function(req, res) {
     User.create({
-      username: req.body.username,
       email: req.body.email,
       firstName: req.body.firstName,
       lastName: req.body.lastName,

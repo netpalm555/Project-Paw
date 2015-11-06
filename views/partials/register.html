@@ -2,12 +2,6 @@
 <html>
 
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <link href="css/custom.css" type="text/css" rel="stylesheet" media="screen,projection" />
-  <script src="js/materialize.js"></script>
   <script src="js/init.js"></script>
 </head>
 
@@ -21,9 +15,13 @@
               <div class="card-content row">
                 <form class="col s12" method="post" action="/api/users">
                   <div class="row col s12">
-                    <div class="input-field col s12">
-                      <input id="name" name="name" type="text" />
-                      <label for="name">Name</label>
+                    <div class="input-field col s6">
+                      <input id="firstName" name="firstName" type="text" />
+                      <label for="firstName">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                      <input id="lastName" name="lastName" type="text" />
+                      <label for="lastName">Last Name</label>
                     </div>
                     <div class="input-field col s12">
                       <input id="email" name="email" type="email" />
