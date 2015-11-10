@@ -34,7 +34,10 @@ app.use(session({
     port: 12647,
     pass: 'HaHsRedis'
   }),
-  secret: '415825827528hkgaahqfahaagahgka'
+  secret: '415825827528hkgaahqfahaagahgka',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {secure: true}
 }));
 
 // Create a url path to the public folder
