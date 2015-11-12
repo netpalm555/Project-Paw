@@ -17,8 +17,12 @@
         .state('register', {
           url: '/register',
           templateUrl: "partials/register.html"
+        })
+        .state('front', {
+          url: '/',
+          templateUrl: "partials/parallax.html"
         });
-      $urlRouterProvider.otherwise('/home');
+      $urlRouterProvider.otherwise('/');
     }
   ]);
 })();

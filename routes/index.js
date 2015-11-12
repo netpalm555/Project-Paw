@@ -14,14 +14,14 @@ router.get('/partials/:name', function(req, res) {
   });
 });
 
-router.get('*', function(req, res, next) {
-  console.log(req.url);
-  if(req.session.userId || (req.url == '/register')) {
-    next();
-  } else {
-    res.redirect('/register');
-  }
-});
+// router.get('*', function(req, res, next) {
+//   console.log(req.url);
+//   if(req.session.userId || (req.url == '/register') || (req.url == '/')) {
+//     next();
+//   } else {
+//     res.redirect('/register');
+//   }
+// });
 
 // Load index.html on request to just '/'
 router.get('/', function(req, res, next) {

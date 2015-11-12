@@ -18,7 +18,7 @@ var app = express();
 app.set('json spaces', 2);
 
 // Serve the faicon image
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', '/img/favicon.ico')));
 
 // Setup in order to parse POST data to JSON
 app.use(bodyParser.json());
