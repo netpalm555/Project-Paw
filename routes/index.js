@@ -6,13 +6,6 @@ var path = require('path');
 // Send request to /api to the api file
 router.use('/api', require('./api'));
 
-// Load index.html on request to just '/'
-router.get('/', function(req, res, next) {
-  res.sendFile('/views/' + 'index.html', {
-    "root": path.join(__dirname, '../')
-  });
-});
-
 // Send a partial with name ':name' when there is a request to /partials/
 router.get('/partials/:name', function(req, res) {
   console.log("sending partial");
@@ -21,8 +14,25 @@ router.get('/partials/:name', function(req, res) {
   });
 });
 
-// Route all other requests to Angular to handle
 router.get('*', function(req, res, next) {
+  console.log(req.url);
+  if(req.session.userId || (req.url == '/register')) {
+    next();
+  } else {
+    res.redirect('/register');
+  }
+});
+
+// Load index.html on request to just '/'
+router.get('/', function(req, res, next) {
+  res.sendFile('/views/' + 'index.html', {
+    "root": path.join(__dirname, '../')
+  });
+});
+
+
+// Route all other requests to Angular to handle
+router.get('*', function(req, res) {
   res.sendFile('/views/' + 'index.html', {
     "root": path.join(__dirname, '../')
   });
