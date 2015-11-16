@@ -6,7 +6,7 @@ var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUH
 exports.create = function(user, text) {
   pg.connect(dbUrl, function(err, client, done) {
     var now = new Date();
-    var query = "INSERT INTO posts (author, lastedited, posttext) VALUES ('guest', '" + now.toISOString() + "', '" + text + "' )";
+    var query = "INSERT INTO posts (author, lastedited, posttext) VALUES ('" + user + "', '" + now.toISOString() + "', '" + text + "' )";
     console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);

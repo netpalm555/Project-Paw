@@ -25,7 +25,7 @@ router.route('/')
   });
 
 //Handles requests sent to /users/:userId
-router.route('/:userId')
+router.route('/id/:userId')
   //Returns user with userId
   .get(function(req, res) {
     User.getById(req.params.userId, function(result) {
@@ -41,6 +41,15 @@ router.route('/:userId')
     //   lastName: req.body.lastName,
     //   password: req.body.password
     // });
+  });
+
+router.route('/auth')
+  .post(function(req, res) {
+    User.authenticate(req.body.email, req.body.password, function(valid) {
+      req.session.user = req.body.email;
+      console.log(req.session);
+      res.redirect('/home');
+    });
   });
 
 // Publish methods

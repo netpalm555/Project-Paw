@@ -17,3 +17,25 @@ exports.set = function(userId, password) {
       });
   });
 }
+
+exports.validate = function(userId, password, cb) {
+  pg.connect(dbUrl, function(err, client, done) {
+    var query = "SELECT * FROM passwords WHERE userId = " + userId;
+    console.log(query);
+    client.query(query).on('error', function(err) {
+        console.log(err);
+      })
+      .on('row', function(result) {
+        var salt = result.salt;
+        var hashedPass = crypto.pbkdf2Sync(password, salt, 10000, 512, 'sha512').toString('hex');
+        if (hashedPass == result.password) {
+          cb(true);
+        } else {
+          cb(false);
+        }
+      })
+      .on('end', function(result) {
+        done();
+      });
+  });
+}

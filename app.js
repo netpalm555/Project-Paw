@@ -36,8 +36,8 @@ app.use(session({
   }),
   secret: '415825827528hkgaahqfahaagahgka',
   resave: false,
-  saveUninitialized: false,
-  cookie: {secure: true}
+  saveUninitialized: true,
+  cookie: {secure: false}
 }));
 
 // Create a url path to the public folder

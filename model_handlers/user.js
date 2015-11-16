@@ -1,14 +1,16 @@
 var pg = require('pg');
 var crypto = require('crypto');
 var Password = require('./password');
+var User = require('./user');
 
 var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUHnhuHkTbHjvzFu@ec2-107-21-106-196.compute-1.amazonaws.com:5432/d9hupdecqpkcup?ssl=true";
 
 //Create a new user
 //userInfo is a JSON object
 exports.create = function(userInfo) {
+  picUrl = crypto.createHash('md5').update(userInfo.email).digest('hex');
   pg.connect(dbUrl, function(err, client, done) {
-    var query = "INSERT INTO users (email, first_name, last_name) VALUES ('" + userInfo.email + "', '" + userInfo.firstName + "', '" + userInfo.lastName + "') RETURNING userId";
+    var query = "INSERT INTO users (email, first_name, last_name, email_hash) VALUES ('" + userInfo.email + "', '" + userInfo.firstName + "', '" + userInfo.lastName + "', '" + picUrl + "') RETURNING userId";
     client.query(query).on('error', function(err) {
         console.log(err);
       })
@@ -21,6 +23,15 @@ exports.create = function(userInfo) {
       });
   });
 };
+
+exports.authenticate = function(email, password, cb) {
+  User.getByEmail(email, function(result) {
+    console.log(result);
+    Password.validate(result.userid, password, function(valid) {
+      cb(valid);
+    });
+  });
+}
 
 //Get all users
 exports.all = function(cb) {
@@ -37,6 +48,22 @@ exports.all = function(cb) {
       .on('end', function(result) {
         done();
         cb(toReturn);
+      });
+  });
+};
+
+exports.getByEmail = function(email, cb) {
+  pg.connect(dbUrl, function(err, client, done) {
+    var query = "SELECT * FROM users WHERE email = '" + email + "'";
+    console.log(query);
+    client.query(query).on('error', function(err) {
+        console.log(err);
+      })
+      .on('row', function(result) {
+        cb(result);
+      })
+      .on('end', function(result) {
+        done();
       });
   });
 };

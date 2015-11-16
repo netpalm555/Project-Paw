@@ -13,7 +13,7 @@ router.route('/')
   })
   //Adds new post
   .post(function(req, res) {
-    Post.create('test user', req.body.postText);
+    Post.create(req.session.user, req.body.postText);
     res.redirect('/');
   });
 
