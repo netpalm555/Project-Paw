@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('myApp', ['ui.router'])
+  var app = angular.module('myApp', ['ui.router', 'myApp.controllers'])
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function($stateProvider, $urlRouterProvider, $locationProvider) {
       $locationProvider.html5Mode(true).hashPrefix('!');
@@ -8,7 +8,7 @@
         .state('home', {
           url: '/home',
           templateUrl: "partials/home.html",
-          controller: HomeCtrl
+          controller: 'HomeCtrl'
         })
         .state('login', {
           url: '/login',
