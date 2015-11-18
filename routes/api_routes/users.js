@@ -20,6 +20,8 @@ router.route('/')
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       password: req.body.password
+    }, function(email) {
+      req.session.user = email;
     });
     res.redirect('/api/users');
   });

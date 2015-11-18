@@ -20,7 +20,7 @@ router.get('*', function(req, res, next) {
   if(req.session.user || (req.url == '/register') || (req.url == '/') || req.url == '/logout' || req.url == '/login') {
     next();
   } else {
-    res.redirect('/register');
+    res.redirect('/login');
   }
 });
 

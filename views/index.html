@@ -23,18 +23,18 @@
         <a class="button-collapse" data-activates="slide-out" href="#">
           <i class="mdi-navigation-menu"></i>
         </a>
-        <div class="nav-wrapper">
+        <div class="nav-wrapper row">
           <a class="brand-logo" href="#" id="logo-container">Logo</a>
-          <ul class="right hide-on-med-and-down">
+          <ul class="right hide-on-med-and-down valign-wrapper">
             <li>
               <a href="#!">First Sidebar Link</a>
             </li>
             <li>
               <a href="#!">Second Sidebar Link</a>
             </li>
-            <li>
-              <div class="col s1" ng-controller="ProfilePicCtrl">
-                <img alt class="circle responsive-img" ng-src="http://www.gravatar.com/avatar/{{hash}}"/>
+            <li class="valign-wrapper">
+              <div class="col s8 valign-wrapper" ng-controller="ProfilePicCtrl">
+                <img alt class="circle responsive-img valign-wrapper" ng-src="http://www.gravatar.com/avatar/{{hash}}"/>
               </div>
             </li>
           </ul>

@@ -7,7 +7,7 @@ var dbUrl = process.env.DATABASE_URL || "postgres://dahrttupatsgrc:JphS59a9GcRUH
 
 //Create a new user
 //userInfo is a JSON object
-exports.create = function(userInfo) {
+exports.create = function(userInfo, cb) {
   picUrl = crypto.createHash('md5').update(userInfo.email).digest('hex');
   pg.connect(dbUrl, function(err, client, done) {
     var query = "INSERT INTO users (email, first_name, last_name, email_hash) VALUES ('" + userInfo.email + "', '" + userInfo.firstName + "', '" + userInfo.lastName + "', '" + picUrl + "') RETURNING userId";
@@ -17,6 +17,7 @@ exports.create = function(userInfo) {
       .on('row', function(result) {
         console.log(result.userid);
         Password.set(result.userid, userInfo.password);
+        cb(userInfo.email);
       })
       .on('end', function(result) {
         done();
