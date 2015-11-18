@@ -28,11 +28,7 @@ exports.validate = function(userId, password, cb) {
       .on('row', function(result) {
         var salt = result.salt;
         var hashedPass = crypto.pbkdf2Sync(password, salt, 10000, 512, 'sha512').toString('hex');
-        if (hashedPass == result.password) {
-          cb(true);
-        } else {
-          cb(false);
-        }
+        hashedPass == result.password ? cb(true) : cb(false);
       })
       .on('end', function(result) {
         done();

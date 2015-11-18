@@ -23,7 +23,7 @@ router.route('/')
     }, function(email) {
       req.session.user = email;
     });
-    res.redirect('/api/users');
+    res.redirect('/home');
   });
 
 //Handles requests sent to /users/:userId
@@ -49,7 +49,7 @@ router.route('/auth')
   .post(function(req, res) {
     User.authenticate(req.body.email, req.body.password, function(valid) {
       req.session.user = req.body.email;
-      console.log(req.session);
+      // console.log(req.session);
       res.redirect('/home');
     });
   });

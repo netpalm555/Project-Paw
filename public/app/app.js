@@ -1,5 +1,5 @@
 (function() {
-  var app = angular.module('myApp', ['ui.router', 'myApp.controllers'])
+  var app = angular.module('myApp', ['ui.router', 'myApp.controllers', 'myApp.factories'])
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     function($stateProvider, $urlRouterProvider, $locationProvider) {
       $locationProvider.html5Mode(true).hashPrefix('!');
