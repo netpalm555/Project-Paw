@@ -12,7 +12,7 @@ exports.create = function(user, text) {
         console.log(err);
       })
       .on('end', function(result) {
-        console.log('completed sucessfully: ' + JSON.stringify(result));
+        // console.log('completed sucessfully: ' + JSON.stringify(result));
         done();
       });
   });
@@ -32,7 +32,7 @@ exports.getAll = function(callback) {
       })
       .on('end', function(result) {
         done();
-        console.log(toReturn);
+        // console.log(toReturn);
         callback(toReturn);
       });
   });
