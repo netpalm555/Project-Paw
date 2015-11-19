@@ -48,17 +48,18 @@ router.route('/id/:userId')
 router.route('/auth')
   .post(function(req, res) {
     User.authenticate(req.body.email, req.body.password, function(valid) {
-      req.session.user = req.body.email;
-      // console.log(req.session);
-      res.redirect('/home');
+      if (valid) {
+        req.session.user = req.body.email;
+        res.redirect('/home');
+      } else {
+        res.redirect('/login');
+      }
     });
   });
 
 router.route('/picHash')
   .get(function(req, res) {
-    console.log(req.session.user);
     if (req.session.user) {
-      console.log('hi');
       User.getByEmail(req.session.user, function(result) {
         res.json(result.email_hash);
       });
