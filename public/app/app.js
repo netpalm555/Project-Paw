@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router', 'myApp.controllers', 'myApp.factories']);
+var app = angular.module('myApp', ['ui.router', 'myApp.controllers', 'myApp.factories', 'myApp.filters']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
   function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -25,11 +25,3 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     $urlRouterProvider.otherwise('/');
   }
 ]);
-
-// app.factory('ProfilePicFactory', function() {
-//   var factory = {};
-//   factory.getHash = function() {
-//     return "7f94f01f70ffa2d3435b038fd75b48f2"
-//   };
-//   return factory;
-// });

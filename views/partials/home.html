@@ -6,10 +6,11 @@
 </head>
 
 <body>
+
   <body>
     </div>
     <div class="row">
-      <div class="col m12 l10 offset-l2">
+      <div class="col m12 l10 offset-l2" ng-controller="HomeCtrl">
         <ul>
           <li>
             <div class="container">
@@ -30,84 +31,27 @@
               </div>
             </div>
           </li>
-          <li>
-            <div class="container">
-              <div class="card">
-                <div class="card-content">
-                  <div class="col s5 m3">
-                    <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
-                  </div>
-                  <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is where a post goes</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
-                  <p>This is where comments would go.</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="container">
-              <div class="card">
-                <div class="card-content">
-                  <div class="col s5 m3">
-                    <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
-                  </div>
-                  <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
-                  <p><a href="#">This is where a post goes</a></p>
-                </div>
-                <div class="card-reveal">
-                  <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
-                  <p>This is where comments would go.</p>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-            <div class="container">
-              <div class="section">
+          <div ng-repeat="post in posts">
+            <ul>
+              <div class="container">
                 <div class="card">
-                  <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="http://materializecss.com/images/office.jpg">
-                  </div>
                   <div class="card-content">
                     <div class="col s5 m3">
-                      <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
+                      <img ng-src="http://www.gravatar.com/avatar/{{post.email_hash}}" alt="" class="circle responsive-img">
                     </div>
-                    <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
-                    <p><a href="#">This is where a post goes</a></p>
+                    <span class="card-title activator grey-text text-darken-4" ng-bind="post.first_name + ' ' + post.last_name"><i class="material-icons right">more_vert</i></span>
+                    <p>
+                      <a href="#" ng-bind-html="post.posttext|html"></a>
+                    </p>
                   </div>
                   <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
-                    <p>This is where comments would go.</p>
+                    <span class="card-title grey-text text-darken-4" ng-bind="post.first_name + ' ' + post.last_name"><i class="material-icons right">close</i></span>
+                    <p ng-bind="post.lastedited"></p>
                   </div>
                 </div>
               </div>
-            </div>
-          </li>
-          <li>
-            <div class="container">
-              <div class="section">
-                <div class="card">
-                  <div class="card-image waves-effect waves-block waves-light">
-                    <img class="activator" src="http://materializecss.com/images/office.jpg">
-                  </div>
-                  <div class="card-content">
-                    <div class="col s5 m3">
-                      <img src="http://materializecss.com/images/yuna.jpg" alt="" class="circle responsive-img">
-                    </div>
-                    <span class="card-title activator grey-text text-darken-4">Username<i class="material-icons right">more_vert</i></span>
-                    <p><a href="#">This is where a post goes</a></p>
-                  </div>
-                  <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">Username<i class="material-icons right">close</i></span>
-                    <p>This is where comments would go.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
+            </ul>
+          </div>
         </ul>
       </div>
 

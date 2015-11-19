@@ -27,10 +27,10 @@ router.route('/')
   });
 
 //Handles requests sent to /users/:userId
-router.route('/id/:userId')
+router.route('/id/:email')
   //Returns user with userId
   .get(function(req, res) {
-    User.getById(req.params.userId, function(result) {
+    User.getByEmail(req.params.email, function(result) {
       res.json(result);
     });
   })

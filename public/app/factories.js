@@ -1,6 +1,7 @@
 angular.module('myApp.factories', [])
   .factory('ProfilePicFactory', ['$http', function($http) {
     var factory = {};
+
     factory.getHash = function(cb) {
       var hash = '?d=mm';
       $http({
@@ -8,12 +9,28 @@ angular.module('myApp.factories', [])
         url: '/api/users/picHash'
       }).then(function success(response) {
         console.log(response.data);
-        if(response.data || response.data != "") {
+        if (response.data || response.data != "") {
           cb(response.data);
         } else {
           cb(hash);
         }
       });
     };
+
+    return factory;
+  }])
+  .factory('PostsFactory', ['$http', function($http) {
+    var factory = {};
+
+    factory.getPosts = function(cb) {
+      $http({
+        method: 'GET',
+        url: '/api/posts'
+      }).then(function success(response) {
+        console.log(response.data);
+        cb(response.data);
+      });
+    }
+
     return factory;
   }]);

@@ -13,9 +13,23 @@ router.route('/')
   })
   //Adds new post
   .post(function(req, res) {
-    Post.create(req.session.user, req.body.postText);
-    res.redirect('/');
+    Post.create(req.session.user, escapeHtml(req.body.postText));
+    res.redirect('/home');
   });
+
+function escapeHtml(text) {
+  var map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+
+  return text.replace(/[&<>"']/g, function(m) {
+    return map[m];
+  });
+}
 
 //Handles requests sent to /posts/:id
 router.route('/:postId')

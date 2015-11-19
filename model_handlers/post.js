@@ -21,9 +21,8 @@ exports.create = function(user, text) {
 //Get all posts
 exports.getAll = function(callback) {
   var toReturn = [];
-  var canReturn = false;
   pg.connect(dbUrl, function(err, client, done) {
-    var query = "SELECT * FROM posts";
+    var query = "SELECT * FROM posts, users WHERE posts.author = users.email ORDER BY posts.lastedited DESC";
     console.log(query);
     client.query(query).on('error', function(err) {
         console.log(err);
@@ -33,6 +32,7 @@ exports.getAll = function(callback) {
       })
       .on('end', function(result) {
         done();
+        console.log(toReturn);
         callback(toReturn);
       });
   });
