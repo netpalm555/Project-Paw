@@ -54,5 +54,18 @@ router.route('/auth')
     });
   });
 
+router.route('/picHash')
+  .get(function(req, res) {
+    console.log(req.session.user);
+    if (req.session.user) {
+      console.log('hi');
+      User.getByEmail(req.session.user, function(result) {
+        res.json(result.email_hash);
+      });
+    } else {
+      res.json("");
+    }
+  });
+
 // Publish methods
 module.exports = router;

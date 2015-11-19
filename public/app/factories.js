@@ -1,6 +1,19 @@
-angular.module('myApp.factories')
-  .factory('ProfilePicFactory', function() {
+angular.module('myApp.factories', [])
+  .factory('ProfilePicFactory', ['$http', function($http) {
     var factory = {};
-    factory.hash = "7f94f01f70ffa2d3435b038fd75b48f2";
+    factory.getHash = function(cb) {
+      var hash = '?d=mm';
+      $http({
+        method: 'GET',
+        url: '/api/users/picHash'
+      }).then(function success(response) {
+        console.log(response.data);
+        if(response.data || response.data != "") {
+          cb(response.data);
+        } else {
+          cb(hash);
+        }
+      });
+    };
     return factory;
-  });
+  }]);
