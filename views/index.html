@@ -18,6 +18,9 @@
 </head>
 
 <body>
+  <ul id="dropdown1" class="dropdown-content">
+  <li><a href="/logout">Logout</a></li>
+</ul>
   <div class="navbar-fixed">
     <nav class="red darken-4">
       <a class="button-collapse" data-activates="slide-out" href="#">
@@ -37,7 +40,7 @@
             <a href="#!">Second Sidebar Link</a>
           </li>
           <li class="valign-wrapper" ng-controller="ProfilePicCtrl">
-            <img alt class="circle responsive-img valign-wrapper col s8" ng-src="http://www.gravatar.com/avatar/{{hash}}" />
+            <a class="dropdown-button" href="#!" data-activates="dropdown1"><img alt class="circle responsive-img valign-wrapper col s8" ng-src="http://www.gravatar.com/avatar/{{hash}}" /></a>
           </li>
         </ul>
       </div>
