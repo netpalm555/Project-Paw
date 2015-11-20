@@ -16,12 +16,17 @@ router.get('/partials/:name', function(req, res) {
 
 router.get('*', function(req, res, next) {
   console.log(req.url);
-  console.log(req.session);
+  // console.log(req.session);
   if(req.session.user || (req.url == '/register') || (req.url == '/') || req.url == '/logout' || req.url == '/login') {
     next();
   } else {
     res.redirect('/login');
   }
+});
+
+router.get('/login', function(req, res, next) {
+  if(req.session.user) res.redirect('/home');
+  else next();
 });
 
 router.get('/logout', function(req, res) {
