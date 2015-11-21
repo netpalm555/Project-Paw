@@ -1,71 +1,17 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <script src="js/init.js"></script>
-</head>
-
-<body>
+  <head>
+    <script src="js/init.js"></script>
+  </head>
 
   <body>
-    </div>
-    <div class="row">
-      <div class="col m12 l10 offset-l2" ng-controller="HomeCtrl">
-        <ul>
-          <li>
-            <div class="container">
-              <div class="card">
-                <div class="card-content row">
-                  <form class="col s12" method="post" action="/api/posts">
-                    <div class="row col s12">
-                      <div class="input-field col s12">
-                        <textarea id="textarea1" class="materialize-textarea" name="postText"></textarea>
-                        <label for="textarea1">What's Up?</label>
-                      </div>
-                      <button class="btn waves-effect waves-light" type="submit">Submit
-                        <i class="material-icons right">send</i>
-                      </button>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </li>
-          <div ng-repeat="post in posts">
-            <ul>
-              <div class="container">
-                <div class="card">
-                  <div class="card-content">
-                    <div class="col s5 m3">
-                      <img ng-src="http://www.gravatar.com/avatar/{{post.email_hash}}?d=mm" alt="" class="circle responsive-img">
-                    </div>
-                    <span class="card-title activator grey-text text-darken-4" ng-bind="post.first_name + ' ' + post.last_name"><i class="material-icons right">more_vert</i></span>
-                    <p>
-                      <a href="#" ng-bind-html="post.posttext|html"></a>
-                    </p>
-                  </div>
-                  <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4" ng-bind="post.first_name + ' ' + post.last_name"><i class="material-icons right">close</i></span>
-                    <p ng-bind="post.lastedited"></p>
-                  </div>
-                </div>
-              </div>
-            </ul>
-          </div>
-        </ul>
-      </div>
 
-      <div class="fixed-action-btn" style="bottom: 24px; right: 24px;">
-        <a class="btn-floating btn-large red">
-          <i class="large material-icons">add</i>
-        </a>
-        <ul>
-          <li><a class="btn-floating red"><i class="material-icons">photo</i></i></a></li>
-          <li><a class="btn-floating yellow darken-1"><i class="material-icons">textsms</i></a></li>
-        </ul>
-      </div>
+    <div ui-view="header"></div>
+    <div ui-view="sidebar"></div>
+    <div ui-view="content"></div>
+    <div ui-view="footer"></div>
 
   </body>
-</body>
 
 </html>
