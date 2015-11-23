@@ -5,18 +5,58 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
     $locationProvider.html5Mode(true).hashPrefix('!');
     console.log('redirecting');
     $stateProvider
-      .state('home', {
-        url: '/home',
-        templateUrl: "partials/home.html",
-        controller: 'HomeCtrl'
+      .state('app', {
+        url: '/',
+        views: {
+          'base': {
+            templateUrl: 'partials/front.html'
+          }
+        }
       })
-      .state('login', {
-        url: '/login',
-        templateUrl: "partials/login.html"
+      .state('app.home', {
+        url: 'home',
+        views: {
+          'base@': {
+            templateUrl: 'partials/home.html'
+          },
+          'header@app.home': {
+            templateUrl: 'partials/header.html'
+          },
+          'sidebar@app.home': {
+            templateUrl: 'partials/sidebar.html'
+          },
+          'content@app.home': {
+            templateUrl: 'partials/posts.html',
+            controller: 'HomeCtrl'
+          },
+          'footer@app.home': {
+            templateUrl: 'partials/footer.html'
+          }
+        }
       })
-      .state('register', {
-        url: '/register',
-        templateUrl: "partials/register.html"
+      .state('app.home.login', {
+        url: '^/login',
+        views: {
+          'content@app.home': {
+            templateUrl: 'partials/login.html'
+          }
+        }
+      })
+      .state('app.home.register', {
+        url: '^/register',
+        views: {
+          'content@app.home': {
+            templateUrl: 'partials/register.html'
+          }
+        }
+      })
+      .state('app.home.newName', {
+        url: '^/profile',
+        views: {
+          'content@app.home': {
+            templateUrl: 'partials/profile.html'
+          }
+        }
       });
     $urlRouterProvider.otherwise('/');
   }

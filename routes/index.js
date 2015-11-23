@@ -37,7 +37,7 @@ router.get('/logout', function(req, res) {
 
 // Load index.html on request to just '/'
 router.get('/', function(req, res, next) {
-  res.sendFile('/views/' + 'front.html', {
+  res.sendFile('/views/' + 'index.html', {
     "root": path.join(__dirname, '../')
   });
 });
