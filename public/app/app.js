@@ -10,6 +10,9 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         views: {
           'base': {
             templateUrl: 'partials/front.html'
+          },
+          'header': {
+            templateUrl: 'partials/header.html'
           }
         }
       })
