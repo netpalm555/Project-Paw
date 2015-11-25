@@ -1,4 +1,4 @@
-var app = angular.module('myApp', ['ui.router', 'myApp.controllers', 'myApp.factories', 'myApp.filters']);
+var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'myApp.controllers', 'myApp.factories', 'myApp.filters']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
   function($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -21,9 +21,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider',
         views: {
           'base@': {
             templateUrl: 'partials/home.html'
-          },
-          'header@app.home': {
-            templateUrl: 'partials/header.html'
           },
           'sidebar@app.home': {
             templateUrl: 'partials/sidebar.html'
