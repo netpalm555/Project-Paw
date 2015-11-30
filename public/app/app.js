@@ -12,7 +12,7 @@ var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'myApp.controllers
           templateUrl: 'partials/front.html'
         },
         'header': {
-          templateUrl: 'partials/header.html'
+          templateUrl: 'partials/header-front.html'
         }
       }
     })
@@ -23,7 +23,12 @@ var app = angular.module('myApp', ['ngMaterial', 'ui.router', 'myApp.controllers
           templateUrl: 'partials/home.html'
         },
         'sidebar@app.home': {
-          templateUrl: 'partials/sidebar.html'
+          templateUrl: 'partials/sidebar.html',
+          controller: 'SidenavCtrl'
+        },
+        'header@': {
+          templateUrl: 'partials/header-home.html',
+          controller: 'HomeHeaderCtrl'
         },
         'content@app.home': {
           templateUrl: 'partials/posts.html',

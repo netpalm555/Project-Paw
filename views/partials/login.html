@@ -1,38 +1,23 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <script src="js/init.js"></script>
-</head>
-<body>
+<div flex="33">
 
-   <div class="row">
-   <div class="col m12 l10 offset-l2" style="margin-top: 65px;">
-        <ul>
-          <li>
-            <div class="container">
-              <div class="card">
-                <div class="card-content row">
-                  <form class="col s12" method="post" action="/api/users/auth">
-                    <div class="row col s12">
-                      <div class="input-field col s12">
-                        <input id="email" name="email" type="email" />
-                        <label for="email">Email</label>
-                      </div>
-                      <div class="input-field col s12">
-                        <input id="password" name="password" type="password" />
-                        <label for="password">Password</label>
-                      </div>
-                    </div>
-                    <button class="btn waves-effect waves-light" type="submit">Login
-                      <i class="material-icons right">send</i>
-                    </button>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li>
-   </div>
+</div>
+<div layout="row" layout-fill layout-align="center center" flex>
+  <md-card flex="66">
+    <form action="/api/users/auth" method="post">
+      <md-card-content>
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input id="email" name="email" type="email"/>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input id="password" name="password" type="password"/>
+        </md-input-container>
+        <md-button class="md-raised md-primary md-hue-2" type="submit">Login</md-button>
+      </md-card-content>
+    </form>
+  </md-card>
+</div>
+<div flex="33">
 
-</body>
-</html>
+</div>
